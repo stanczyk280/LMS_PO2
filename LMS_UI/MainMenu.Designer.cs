@@ -78,8 +78,9 @@
             this.btnRemovePatron.Name = "btnRemovePatron";
             this.btnRemovePatron.Size = new System.Drawing.Size(303, 46);
             this.btnRemovePatron.TabIndex = 10;
-            this.btnRemovePatron.Text = "Remove Book";
+            this.btnRemovePatron.Text = "Remove Patron";
             this.btnRemovePatron.UseVisualStyleBackColor = true;
+            this.btnRemovePatron.Click += new System.EventHandler(this.btnRemovePatron_Click);
             // 
             // btnRemoveBook
             // 
@@ -92,8 +93,9 @@
             this.btnRemoveBook.Name = "btnRemoveBook";
             this.btnRemoveBook.Size = new System.Drawing.Size(303, 46);
             this.btnRemoveBook.TabIndex = 9;
-            this.btnRemoveBook.Text = "Remove Patron";
+            this.btnRemoveBook.Text = "Remove Book";
             this.btnRemoveBook.UseVisualStyleBackColor = true;
+            this.btnRemoveBook.Click += new System.EventHandler(this.btnRemoveBook_Click);
             // 
             // btnBorrowerList
             // 

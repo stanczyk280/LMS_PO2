@@ -14,6 +14,16 @@ namespace LibraryManagmentSystem
             return ConfigurationManager.ConnectionStrings[id].ConnectionString;
         }
 
+        public static List<BorrowerModel> LoadBorrowerModel()
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<BorrowerModel>("SELECT * FROM Borrower",
+                    new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
         #region LoadModel
 
         public static List<BookModel> LoadBookModel()
@@ -36,17 +46,51 @@ namespace LibraryManagmentSystem
             }
         }
 
-        public static List<BorrowerModel> LoadBorrowerModel()
+        #endregion LoadModel
+
+        #region Search
+
+        public static List<BookModel> SearchByTitle(string str)
         {
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
-                var output = cnn.Query<BorrowerModel>("SELECT * FROM Borrower",
+                var output = cnn.Query<BookModel>("SELECT * FROM Book WHERE Title = '" + str + "'",
                     new DynamicParameters());
                 return output.ToList();
             }
         }
 
-        #endregion LoadModel
+        public static List<BookModel> SearchByAuthor(string str)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<BookModel>("SELECT * FROM Book WHERE Author = '" + str + "'",
+                    new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<BookModel> SearchByCategory(string str)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<BookModel>("SELECT * FROM Book WHERE Category = '" + str + "'",
+                    new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        public static List<BookModel> SearchByCode(string str)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                var output = cnn.Query<BookModel>("SELECT * FROM Book WHERE Code = '" + str + "'",
+                    new DynamicParameters());
+                return output.ToList();
+            }
+        }
+
+        #endregion Search
 
         #region AddToTable
 
@@ -69,5 +113,25 @@ namespace LibraryManagmentSystem
         }
 
         #endregion AddToTable
+
+        #region RemoveFromTable
+
+        public static void RemoveBook(string code)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("DELETE FROM Book WHERE Code = '" + code + "'");
+            }
+        }
+
+        public static void RemovePatron(string id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("DELETE FROM Patron WHERE Id = '" + id + "'");
+            }
+        }
+
+        #endregion RemoveFromTable
     }
 }

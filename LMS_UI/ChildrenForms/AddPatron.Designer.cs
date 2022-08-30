@@ -277,6 +277,7 @@
             this.btnAddPatron.TabIndex = 6;
             this.btnAddPatron.Text = "Add Patron";
             this.btnAddPatron.UseVisualStyleBackColor = false;
+            this.btnAddPatron.Click += new System.EventHandler(this.btnAddPatron_Click);
             // 
             // AddPatron
             // 

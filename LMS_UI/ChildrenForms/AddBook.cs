@@ -23,6 +23,13 @@ namespace LMS_UI
             book.Category = txtCategory.Text;
             book.Copies = int.Parse(txtCopies.Text);
             book.Code = txtCode.Text;
+            SqliteDataAccess.AddBook(book);
+            txtTitle.Text = default;
+            txtAuthor.Text = default;
+            txtPublisher.Text = default;
+            txtCategory.Text = default;
+            txtCopies.Text = default;
+            txtCode.Text = default;
         }
     }
 }

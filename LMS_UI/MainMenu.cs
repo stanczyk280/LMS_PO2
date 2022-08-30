@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using LMS_UI.ChildrenForms;
 
 namespace LMS_UI
 {
@@ -81,7 +82,11 @@ namespace LMS_UI
             Patrons = SqliteDataAccess.LoadPatronModel();
             dbgList.DataSource = null;
             dbgList.DataSource = Patrons;
-            ForceColumnLayout();
+            dbgList.AutoGenerateColumns = true;
+            foreach (DataGridViewColumn column in dbgList.Columns)
+            {
+                column.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            };
             dbgList.Columns["BirthDate"].HeaderText = "Birth Date";
             dbgList.Columns["ContactNumber"].HeaderText = "Contact Number";
         }
@@ -120,6 +125,20 @@ namespace LMS_UI
         {
             CloseForms();
             childForm = new SearchBook();
+            childForm.Show();
+        }
+
+        private void btnRemoveBook_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            childForm = new RemoveBook();
+            childForm.Show();
+        }
+
+        private void btnRemovePatron_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            childForm = new RemovePatron();
             childForm.Show();
         }
 
