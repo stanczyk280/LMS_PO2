@@ -165,5 +165,12 @@ namespace LMS_UI
         }
 
         #endregion ButtonHandling
+
+        private void btnViewBook_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            childForm = new ReturnBook();
+            childForm.Show();
+        }
     }
 }

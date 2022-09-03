@@ -141,6 +141,14 @@ namespace LibraryManagmentSystem
             }
         }
 
+        public static void RemoveBorrower(string id)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("DELETE FROM Borrower WHERE PatronId = '" + id + "'");
+            }
+        }
+
         #endregion RemoveFromTable
 
         public static void DecrementBookNumber(string str)
@@ -148,6 +156,14 @@ namespace LibraryManagmentSystem
             using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
             {
                 cnn.Execute("UPDATE Book SET Copies = Copies - 1 WHERE Code = '" + str + "'");
+            }
+        }
+
+        public static void IncrementBookNumber(string str)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("UPDATE Book SET Copies = Copies + 1 WHERE Code = '" + str + "'");
             }
         }
     }

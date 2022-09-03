@@ -155,6 +155,7 @@
             this.btnViewBook.TabIndex = 5;
             this.btnViewBook.Text = "Return Book";
             this.btnViewBook.UseVisualStyleBackColor = true;
+            this.btnViewBook.Click += new System.EventHandler(this.btnViewBook_Click);
             // 
             // btnLendBook
             // 

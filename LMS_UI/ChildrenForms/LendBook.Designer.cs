@@ -181,7 +181,7 @@
             this.btnAddBorrower.Name = "btnAddBorrower";
             this.btnAddBorrower.Size = new System.Drawing.Size(294, 46);
             this.btnAddBorrower.TabIndex = 7;
-            this.btnAddBorrower.Text = "Add Borrower";
+            this.btnAddBorrower.Text = "Lend Book";
             this.btnAddBorrower.UseVisualStyleBackColor = false;
             this.btnAddBorrower.Click += new System.EventHandler(this.btnAddBorrower_Click);
             // 
