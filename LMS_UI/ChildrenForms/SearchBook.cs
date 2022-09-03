@@ -79,7 +79,7 @@ namespace LMS_UI
             dbgSearchResult.DataSource = null;
             if (txtByAuthor.Text != default)
             {
-                Books = SqliteDataAccess.SearchByAuthor(btnSearchAuthor.Text);
+                Books = SqliteDataAccess.SearchByAuthor(txtByAuthor.Text);
                 dbgSearchResult.DataSource = Books;
                 ForceColumnLayout();
             }
