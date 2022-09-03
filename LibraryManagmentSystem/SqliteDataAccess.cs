@@ -112,6 +112,15 @@ namespace LibraryManagmentSystem
             }
         }
 
+        public static void AddBorrower(BorrowerModel borrower)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("INSERT INTO Borrower (BookCode, PatronId, ReleaseDate, DueDate) values (@BookCode, @PatronId," +
+                    " @ReleaseDate, @DueDate)", borrower);
+            }
+        }
+
         #endregion AddToTable
 
         #region RemoveFromTable
@@ -133,5 +142,13 @@ namespace LibraryManagmentSystem
         }
 
         #endregion RemoveFromTable
+
+        public static void DecrementBookNumber(string str)
+        {
+            using (IDbConnection cnn = new SQLiteConnection(LoadConnectionString()))
+            {
+                cnn.Execute("UPDATE Book SET Copies = Copies - 1 WHERE Code = '" + str + "'");
+            }
+        }
     }
 }

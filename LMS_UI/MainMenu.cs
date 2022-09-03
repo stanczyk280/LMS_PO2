@@ -157,6 +157,13 @@ namespace LMS_UI
             LoadList(Model.Borrowers);
         }
 
+        private void btnLendBook_Click(object sender, EventArgs e)
+        {
+            CloseForms();
+            childForm = new LendBook();
+            childForm.Show();
+        }
+
         #endregion ButtonHandling
     }
 }

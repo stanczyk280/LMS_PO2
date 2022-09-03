@@ -78,6 +78,12 @@
     <Compile Include="ChildrenForms\AddPatron.Designer.cs">
       <DependentUpon>AddPatron.cs</DependentUpon>
     </Compile>
+    <Compile Include="ChildrenForms\LendBook.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ChildrenForms\LendBook.Designer.cs">
+      <DependentUpon>LendBook.cs</DependentUpon>
+    </Compile>
     <Compile Include="ChildrenForms\RemoveBook.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ChildrenForms\AddPatron.resx">
       <DependentUpon>AddPatron.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ChildrenForms\LendBook.resx">
+      <DependentUpon>LendBook.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ChildrenForms\RemoveBook.resx">
       <DependentUpon>RemoveBook.cs</DependentUpon>

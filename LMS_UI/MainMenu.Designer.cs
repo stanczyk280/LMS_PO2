@@ -169,6 +169,7 @@
             this.btnLendBook.TabIndex = 4;
             this.btnLendBook.Text = "Lend Book";
             this.btnLendBook.UseVisualStyleBackColor = true;
+            this.btnLendBook.Click += new System.EventHandler(this.btnLendBook_Click);
             // 
             // btnSearchBook
             // 
